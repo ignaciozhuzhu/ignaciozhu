@@ -1,0 +1,5 @@
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\bin\Debug\NUnitTest.exe.config
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\bin\Debug\NUnitTest.exe
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\bin\Debug\NUnitTest.pdb
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\obj\Debug\NUnitTest.exe
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\obj\Debug\NUnitTest.pdb

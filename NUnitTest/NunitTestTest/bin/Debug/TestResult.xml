@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="d:\Users\cio\Documents\Visual Studio 2012\Projects\NUnitTest\NunitTestTest\bin\Debug\NunitTestTest.dll" total="1" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2016-01-06" time="10:31:52">
+  <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.8670" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="D:\Users\cio\Documents\Visual Studio 2012\Projects\NUnitTest\NunitTestTest\bin\Debug" machine-name="CIO-PC" user="cio" user-domain="cio-PC" />
+  <culture-info current-culture="zh-CN" current-uiculture="zh-CN" />
+  <test-suite type="Assembly" name="d:\Users\cio\Documents\Visual Studio 2012\Projects\NUnitTest\NunitTestTest\bin\Debug\NunitTestTest.dll" executed="True" result="Failure" success="False" time="0.105" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="NunitTestTest" executed="True" result="Failure" success="False" time="0.094" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="CalculatorTest" executed="True" result="Failure" success="False" time="0.091" asserts="0">
+            <results>
+              <test-case name="NunitTestTest.CalculatorTest.TestDivide" executed="True" result="Error" success="False" time="0.078" asserts="0">
+                <failure>
+                  <message><![CDATA[System.DivideByZeroException : 尝试除以零。]]></message>
+                  <stack-trace><![CDATA[在 NUnitTest.Calculator.Divide(Int32 a, Int32 b) 位置 d:\Users\cio\Documents\Visual Studio 2012\Projects\NUnitTest\Calculator.cs:行号 53
+在 NunitTestTest.CalculatorTest.TestDivide() 位置 d:\Users\cio\Documents\Visual Studio 2012\Projects\NUnitTest\NunitTestTest\CalculatorTest.cs:行号 23
+]]></stack-trace>
+                </failure>
+              </test-case>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

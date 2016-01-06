@@ -1,0 +1,9 @@
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\NunitTestTest\bin\Debug\NunitTestTest.dll
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\NunitTestTest\bin\Debug\NunitTestTest.pdb
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\NunitTestTest\bin\Debug\nunit.framework.dll
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\NunitTestTest\bin\Debug\NUnitTest.exe
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\NunitTestTest\bin\Debug\NUnitTest.pdb
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\NunitTestTest\bin\Debug\nunit.framework.xml
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\NunitTestTest\obj\Debug\NunitTestTest.csprojResolveAssemblyReference.cache
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\NunitTestTest\obj\Debug\NunitTestTest.dll
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\NunitTestTest\obj\Debug\NunitTestTest.pdb
