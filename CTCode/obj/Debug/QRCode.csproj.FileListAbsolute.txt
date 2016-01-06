@@ -1,0 +1,5 @@
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\QRCode\bin\Debug\QRCode.dll
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\QRCode\bin\Debug\QRCode.pdb
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\QRCode\bin\Debug\ThoughtWorks.QRCode.DLL
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\QRCode\obj\Debug\QRCode.dll
+d:\users\cio\documents\visual studio 2012\Projects\NUnitTest\QRCode\obj\Debug\QRCode.pdb
