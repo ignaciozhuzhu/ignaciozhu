@@ -1,0 +1,5 @@
+D:\Users\cio\Documents\Visual Studio 2012\Projects\CUnitTest\bin\Debug\CUnitTest.exe.config
+D:\Users\cio\Documents\Visual Studio 2012\Projects\CUnitTest\bin\Debug\CUnitTest.exe
+D:\Users\cio\Documents\Visual Studio 2012\Projects\CUnitTest\bin\Debug\CUnitTest.pdb
+D:\Users\cio\Documents\Visual Studio 2012\Projects\CUnitTest\obj\Debug\CUnitTest.exe
+D:\Users\cio\Documents\Visual Studio 2012\Projects\CUnitTest\obj\Debug\CUnitTest.pdb
