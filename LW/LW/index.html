@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>登录</title>
+
+    <link href="/script/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="/script/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/script/bootstrap-3.3.5/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/script/MiniUI/boot.js" type="text/javascript"></script>
+    <script src="/script/sha1.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <form id="mainForm" class="form-horizontal" role="form" style="width: 400px; margin: 0 auto; padding-top: 10mm;">
+        <div class="form-group">
+            <label for="username" class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="username" placeholder="请输入用户名" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="sha1" placeholder="请输入密码" >
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button id="login" type="button" class="btn btn-default"  >登录</button>
+                <button id="regist" type="button" class="btn btn-default" >注册</button>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#regist").click(function () {
+            if ($("#sha1").val() == "" || $("#username").val() == "") {
+                alert('请输入用户名或密码')
+                return;
+            }
+            $.ajax({
+                url: "/modules/LW.Systems.Web/Ajax/loginhandler.ashx",
+                data: { fn: "regedit", username: $("#username").val(), sha1: $("#sha1").val() },
+                type: "post",
+                success: function (text) {
+                    var d = mini.decode(text);
+                    alert(d.data[0].info)
+                }
+            })
+        })
+
+        $("#login").click(function () {
+            if ($("#sha1").val() == "" || $("#username").val() == "") {
+                alert('请输入用户名或密码')
+                return;
+            }
+            IsString($("#sha1").val());
+            $.ajax({
+                type: "POST",
+                url: "/modules/LW.Systems.Web/Ajax/loginhandler.ashx?fn=log_in",
+                data: { username: $("#username").val(), sha1: $("#sha1").val() },//hex_sha1($("#sha1").val() + $("#username").val() + '089').toLowerCase()
+                success: function (msg) {
+                    if (msg.indexOf('System.Exception') == -1) {
+                        var ret = mini.decode(msg);
+                        alert(ret.data[0].info)
+                    }
+                    else {
+                        alert(msg)
+                    }
+                }
+            });
+        })
+
+
+
+    });
+
+    $("#sha1").keydown(function (e) {
+        if (e.keyCode == 13) {
+            onClick();
+        }
+    })
+
+    //判断输入的字符是否为:a-z,A-Z,0-9
+    function IsString(str) {
+        reg = /^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+        if (reg.test(str)) {
+            setCookie('isresset', '0');
+        } else {
+            setCookie('isresset', '1');
+        }
+    }
+
+
+    //function regedit() {
+    //    $.ajax({
+    //        url: "/modules/LW.Systems.Web/Ajax/Login.ashx",
+    //        data: { fn: "regedit", username: $("#username").val() },
+    //        type: "post",
+    //        success: function (text) {
+    //            //alert()
+    //            var d = mini.decode(text);
+    //            alert(d.data[0].info)
+    //            //  alert()
+    //        }
+    //    })
+    //}
+
+
+</script>
