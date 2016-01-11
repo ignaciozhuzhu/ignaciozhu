@@ -1,5 +1,0 @@
-d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW\modules\LW.Systems.Web\obj\Debug\LW.Systems.Web.csprojResolveAssemblyReference.cache
-d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW\bin\LW.Systems.Web.dll
-d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW\bin\LW.Systems.Web.pdb
-d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW\modules\LW.Systems.Web\obj\Debug\LW.Systems.Web.dll
-d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW\modules\LW.Systems.Web\obj\Debug\LW.Systems.Web.pdb

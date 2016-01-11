@@ -1,4 +1,0 @@
-d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW\bin\LW.Common.dll
-d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW\bin\LW.Common.pdb
-d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW.Common\obj\Debug\LW.Common.dll
-d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW.Common\obj\Debug\LW.Common.pdb
