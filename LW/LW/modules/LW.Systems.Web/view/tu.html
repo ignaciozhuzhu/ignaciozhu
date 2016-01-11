@@ -1,0 +1,58 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+<title>22</title>
+<style>
+		
+		.stripes {
+			height: 250px;
+			width: 375px;
+			float: left;
+			
+			margin: 10px;
+			
+			-webkit-background-size: 50px 50px;
+			-moz-background-size: 50px 50px;
+			background-size: 50px 50px; /* Controls the size of the stripes */
+			
+			-moz-box-shadow: 1px 1px 8px gray;
+			-webkit-box-shadow: 1px 1px 8px gray;
+			box-shadow: 1px 1px 8px gray;
+		}
+		
+		.angled {
+			background-color: #ac0;
+			background-image: -webkit-gradient(linear, 0 100%, 100% 0,
+									color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent),
+									color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)),
+									color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent),
+			 						to(transparent));
+			background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+								transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+								transparent 75%, transparent);
+			background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+								transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+								transparent 75%, transparent);
+			background-image: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+								transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+								transparent 75%, transparent);
+		}
+		#footer {
+			text-align: center;
+			clear: both;
+			padding-top: .5em;
+			border-top: 1px solid #ccc;
+			font-variant: small-caps;
+		}
+	</style>
+</head>
+
+<body>
+
+<div class=" stripes angled  ">
+</div>
+</body>
+
+</html>

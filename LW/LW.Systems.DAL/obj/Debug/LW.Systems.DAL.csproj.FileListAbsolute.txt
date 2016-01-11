@@ -1,0 +1,5 @@
+d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW\bin\LW.Systems.DAL.dll
+d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW\bin\LW.Systems.DAL.pdb
+d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW.Systems.DAL\obj\Debug\LW.Systems.DAL.dll
+d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW.Systems.DAL\obj\Debug\LW.Systems.DAL.pdb
+d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW.Systems.DAL\obj\Debug\LW.Systems.DAL.csprojResolveAssemblyReference.cache

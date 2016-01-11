@@ -1,0 +1,4 @@
+d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW\bin\LW.Systems.BLL.dll
+d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW\bin\LW.Systems.BLL.pdb
+d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW.Systems.BLL\obj\Debug\LW.Systems.BLL.dll
+d:\Users\cio\Documents\Visual Studio 2012\Projects\LW\LW.Systems.BLL\obj\Debug\LW.Systems.BLL.pdb
