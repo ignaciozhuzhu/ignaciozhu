@@ -37,8 +37,8 @@ namespace LW.Systems.Web.Ajax
         {
             try
             {
-                string username = HttpContext.Current.Request["username"].ToString();
-                HttpContext.Current.Response.Write(new LW.Systems.DAL.Factory.Word().GetWord(username));
+                string userid = HttpContext.Current.Request["userid"].ToString();
+                HttpContext.Current.Response.Write(new LW.Systems.DAL.Factory.Word().GetWord(userid));
             }
             catch
             {
