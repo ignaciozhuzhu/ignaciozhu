@@ -31,8 +31,6 @@ namespace LW.Systems.Web.Ajax
         /// <summary>
         /// 获取单词
         /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
         public void getword()
         {
             try
@@ -44,26 +42,51 @@ namespace LW.Systems.Web.Ajax
             {
             }
         }
-
         /// <summary>
-        /// 登录
+        /// 进度条
         /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        public void log_in()
+        public void getschedule()
         {
             try
             {
-                string username = HttpContext.Current.Request["username"].ToString();
-                string sha1 = HttpContext.Current.Request["sha1"].ToString();
-                string password = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(sha1 + username + "089", "SHA1").ToLower(), "MD5");
-                HttpContext.Current.Response.Write(new LW.Systems.DAL.Factory.User().ExistsByLoginNamePassWord(username, password));
+                string userid = HttpContext.Current.Request["userid"].ToString();
+                HttpContext.Current.Response.Write(new LW.Systems.DAL.Factory.Word().GetSchedule(userid));
             }
-            catch (Exception e)
+            catch
             {
-                HttpContext.Current.Response.Write(e);
             }
         }
+        /// <summary>
+        /// (抬走)下一个
+        /// </summary>
+        public void nextword()
+        {
+            try
+            {
+                string userid = HttpContext.Current.Request["userid"].ToString();
+                HttpContext.Current.Response.Write(new LW.Systems.DAL.Factory.Word().NextWord(userid));
+            }
+            catch
+            {
+            }
+        }
+        /// <summary>
+        ///  变更单词掌握状态
+        /// </summary>
+        public void updatewordstatus()
+        {
+            try
+            {
+                string userid = HttpContext.Current.Request["userid"].ToString();
+                string orderby = HttpContext.Current.Request["orderby"].ToString();
+                string status = HttpContext.Current.Request["status"].ToString();
+                HttpContext.Current.Response.Write(new LW.Systems.DAL.Factory.Word().UpdateWordStatus(userid, orderby, status));
+            }
+            catch
+            {
+            }
+        }
+
 
         public bool IsReusable
         {

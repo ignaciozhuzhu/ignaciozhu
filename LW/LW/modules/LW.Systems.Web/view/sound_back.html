@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="/script/jquery/jquery-1.12.0.min.js" type="text/javascript"></script>
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        //发音控件----------------------------------------------------------------------------------------------------------------------------------begin
+        if (navigator.userAgent.indexOf('Chrome') >= 0) {
+            //如果是谷歌浏览器用embed标签
+            document.write('<img id="soundUKChr" src="/images/soundGray.jpg" onclick="play_click(this,1);" />')
+            document.write('<img id="soundUSChr" src="/images/soundGreen.jpg" onclick="play_click(this,2);" />')
+            document.write('<img id="div4SoundChr"/>')
+            function play_click(sef, type) {
+                var url = 'http://dict.youdao.com/dictvoice?type=' + type + '&audio=' + word + '';
+                document.write('<img id="div4SoundChr"><embed id="myembed" src=' + url + '></embed></img>');
+                $("embed").hide();
+            }
+        }
+        else {
+            //其他情况用flash播放器
+            document.write(' <OBJECT id="Player"');
+            document.write(' classid="clsid:6BF52A52-394A-11d3-B153-00C04F79FAA6"');
+            var value = "http://dict.youdao.com/dictvoice?type=2&audio=" + word + "";
+            document.write(' width=0 height=0 > <param name="URL" value=' + value + ' /> <param name="AutoStart" value="false" /> </OBJECT>');
+            document.write('<img id="soundUK" src="/images/soundGray.jpg" onclick="Player.controls.play();" />')
+            document.write('<img id="soundUS" src="/images/soundGreen.jpg" onclick="Player.controls.play();" />')
+        }
+        //鼠标放置发音图标显示变化---------------------------------------------------begin
+
+
+        //鼠标放置发音图标显示变化---------------------------------------------------end
+        //发音控件----------------------------------------------------------------------------------------------------------------------------------end
+    </script>
+
+</body>
+</html>

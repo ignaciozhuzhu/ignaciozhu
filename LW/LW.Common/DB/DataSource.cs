@@ -62,6 +62,7 @@ namespace LW.Common.DB
             }
             catch (Exception e)
             {
+               
                 return null;
             }
         }

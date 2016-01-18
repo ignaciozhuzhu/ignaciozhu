@@ -31,8 +31,6 @@ namespace LW.Systems.Web.Ajax
         /// <summary>
         /// 注册
         /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
         public void regedit()
         {
             try
@@ -50,8 +48,6 @@ namespace LW.Systems.Web.Ajax
         /// <summary>
         /// 登录
         /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
         public void log_in()
         {
             try

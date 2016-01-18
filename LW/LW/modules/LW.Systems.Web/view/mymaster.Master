@@ -1,0 +1,106 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="mymaster.Master.cs" Inherits="LW.Systems.Web.view.mymaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>闪现网</title>
+    <link href="/script/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="/script/jquery/jquery-1.12.0.min.js" type="text/javascript"></script>
+    <script src="/script/bootstrap-3.3.5/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/script/MiniUI/boot.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        body {
+            TEXT-ALIGN: center;
+            padding: 0px;
+            margin: 0px;
+            background-color: #e4e4e4;
+            font-size: 16px;
+        }
+
+        #boundary {
+            height: 20px;
+            background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#ddd), to(#e4e4e4)); /*谷歌*/
+        }
+
+        /*中间固定宽度,两边自适应**************************/
+        #mainbody {
+            MARGIN-RIGHT: auto;
+            MARGIN-LEFT: auto;
+            height: 800px;
+            background-color: #fff;
+            width: 880px;
+            float: left;
+        }
+
+        #left, #right {
+            float: left;
+            margin: 0 0 0 -441px;
+            width: 50%;
+        }
+
+        .inner {
+            padding: 20px;
+        }
+
+        #left .inner,
+        #right .inner {
+            margin: 0 0 0 441px;
+        }
+        /*中间固定宽度,两边自适应**************************/
+
+        /*4memory**************************************************************/
+        .slant {
+            background-image: url(/images/slant.gif);
+            background-size: 10px 10px;
+        }
+
+        .tomid {
+            width: 35px;
+            height: 52px;
+        }
+        /*4memory**************************************************************/
+    </style>
+</head>
+<body>
+    <div>
+        <div id="header" style="padding: 20px 0 13px 0;">
+            首页
+                比武<img id="aa" src="/images/downArrow.gif" />
+            引燃<img id="Img2" src="/images/downArrow.gif" />
+            大头<img id="Img3" src="/images/downArrow.gif" />
+            传送<img id="Img4" src="/images/downArrow.gif" />
+            社区<img id="Img5" src="/images/downArrow.gif" />
+            我们<img id="Img1" src="/images/downArrow.gif" />
+            大家<img id="Img6" src="/images/downArrow.gif" />
+            一起<img id="Img7" src="/images/downArrow.gif" />
+            哈啤<img id="Img8" src="/images/downArrow.gif" />
+        </div>
+        <div style="border: 1px solid #d1d0d0">
+        </div>
+        <div id="boundary">
+        </div>
+
+        <div id="left">
+            <div class="inner"></div>
+        </div>
+        <div id="mainbody">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderBody" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div id="right">
+            <div class="inner"></div>
+        </div>
+
+        <div style="height:100px">
+
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>

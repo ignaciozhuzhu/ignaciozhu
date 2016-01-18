@@ -1,0 +1,77 @@
+﻿
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>ichartjs 示例</title>
+		<meta name="Description" content="The ichartjs's gallery center,ichartjs 示例中心" />
+		<meta name="Keywords" content="ichartjs demo,Html5 demo,ichartjs示例,ichartjs示例,Html5示例,Html5示例" />
+		<script type="text/javascript" src="http://www.ichartjs.com/ichart.latest.min.js"></script>
+		<link rel="stylesheet" href="http://www.ichartjs.com/samples/css/demo.css" type="text/css"/>
+		<script type="text/javascript">
+		    $(function () {
+		        var data = [
+                            { name: 'a', value: 21.92, color: '#a5c2d5' },
+                            { name: 'b', value: 15.95, color: '#cbab4f' },
+                            { name: 'c', value: 26.66, color: '#76a871' },
+                            { name: 'd', value: 17.22, color: '#9f7961' },
+                            { name: 'e', value: 12.61, color: '#a56f8f' },
+                            { name: 'f', value: 10.644, color: '#6f83a5' },
+                            { name: 'g', value: 10.507, color: '#a5c2d5' },
+                            { name: 'h', value: 11.125, color: '#cbab4f' },
+                            { name: 'i', value: 9.665, color: '#76a871' },
+                            { name: 'j', value: 3.025, color: '#9f7961' },
+                            { name: 'k', value: 4.886, color: '#a56f8f' },
+                            { name: 'l', value: 10.084, color: '#6f83a5' },
+                            { name: 'm', value: 17.268, color: '#a5c2d5' },
+                            { name: 'n', value: 22.619, color: '#cbab4f' },
+                            { name: 'o', value: 1.517, color: '#76a871' },
+                            { name: 'p', value: 22.619, color: '#9f7961' },
+                            { name: 'q', value: 1.517, color: '#a56f8f' },
+                            { name: 'r', value: 10.319, color: '#6f83a5' },
+                            { name: 's', value: 27.883, color: '#a5c2d5' },
+                            { name: 't', value: 14.556, color: '#cbab4f' },
+                            { name: 'u', value: 4.082, color: '#76a871' },
+                            { name: 'v', value: 5.503, color: '#9f7961' },
+                            { name: 'w', value: 5.356, color: '#a56f8f' },
+                            { name: 'x', value: 0.481, color: '#6f83a5' },
+                            { name: 'y', value: 1.247, color: '#a5c2d5' },
+                            { name: 'z', value: 1.45, color: '#cbab4f' }
+		        ];
+
+		        new iChart.Bar2D({
+		            render: 'canvasDiv',
+		            data: data,
+		            title: '各字母开头常用单词分布率(共14万单词)',
+		            showpercent: true,
+		            decimalsnum: 2,
+		            width: 600,
+		            height: 800,
+		            coordinate: {
+		                scale: [{
+		                    position: 'bottom',
+		                    start_scale: 0,
+		                    end_scale: 40,
+		                    scale_space: 8,
+		                    listeners: {
+		                        parseText: function (t, x, y) {
+		                            return { text: t + "%" }
+		                        }
+		                    }
+		                }]
+		            }
+		        }).draw();
+		    });
+	</script>
+</head>
+<body>
+	<div id='canvasDiv'></div>
+	<div class='ichartjs_info'>
+		<span class='ichartjs_btn' onmouseover="this.style.color='#2f99ff'" onmouseout="this.style.color='#0b2946'" onclick="window.top.viewCode(document);">View Code</span>
+		<div class='ichartjs_sm'>说明</div>
+		<div class='ichartjs_details'>
+			这是一个基本的条形图示例，该示例展示了各字母开头常用单词分布率(共14万单词)。
+		</div>
+	</div>
+</body>
+</html>

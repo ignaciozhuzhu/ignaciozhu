@@ -57,9 +57,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\downArrow.gif" />
+    <Content Include="images\slant.gif" />
+    <Content Include="images\soundGray.gif" />
+    <Content Include="images\soundGreen.gif" />
+    <Content Include="images\soundGreenOn.gif" />
+    <Content Include="images\downArrow2.gif" />
+    <Content Include="images\rightarrow.gif" />
+    <Content Include="images\rightarrowGr.gif" />
     <Content Include="index.html" />
     <Content Include="Properties\PublishProfiles\bendi.pubxml.user" />
     <Content Include="Properties\PublishProfiles\sss.pubxml.user" />
+    <Content Include="script\base.js" />
     <Content Include="script\bootstrap-3.3.5\css\bootstrap-theme.css" />
     <Content Include="script\bootstrap-3.3.5\css\bootstrap-theme.min.css" />
     <Content Include="script\bootstrap-3.3.5\css\bootstrap.css" />
@@ -68,10 +77,10 @@
     <Content Include="script\bootstrap-3.3.5\js\bootstrap.js" />
     <Content Include="script\bootstrap-3.3.5\js\bootstrap.min.js" />
     <Content Include="script\bootstrap-3.3.5\js\npm.js" />
+    <Content Include="script\jquery\jquery-1.12.0.min.js" />
     <Content Include="script\jquery\jquery-2.1.4.min.js" />
     <Content Include="script\MiniUI\boot.js" />
     <Content Include="script\MiniUI\bootsettime.js" />
-    <Content Include="script\MiniUI\bootv2.js" />
     <Content Include="script\MiniUI\jquery-1.6.2.min.js" />
     <Content Include="script\MiniUI\KindEditor\default.css" />
     <Content Include="script\MiniUI\KindEditor\kindeditor-all-min.js" />
@@ -2298,7 +2307,6 @@
     <Content Include="script\MiniUI\miniui\themes\olive2003\images\window\header.gif" />
     <Content Include="script\MiniUI\miniui\themes\olive2003\skin.css" />
     <Content Include="script\sha1.js" />
-    <Content Include="images\slant.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -2325,15 +2333,8 @@
     <None Include="Properties\PublishProfiles\bendi.pubxml" />
     <None Include="Properties\PublishProfiles\sss.pubxml" />
     <Content Include="Properties\Settings.settings" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="aspnet_client\system_web\4_0_30319\" />
     <Folder Include="script\MiniUI\miniui\themes\gray\images\layout\" />
     <Folder Include="script\MiniUI\miniui\themes\gray\images\panel\" />
     <Folder Include="script\MiniUI\miniui\themes\gray\images\splitter\" />
