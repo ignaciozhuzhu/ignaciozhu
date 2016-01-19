@@ -33,8 +33,8 @@ if (navigator.userAgent.indexOf('Chrome') >= 0) {
 else {
     var value = "http://dict.youdao.com/dictvoice?type=2&audio=" + word + "";
     var str = '<OBJECT id="Player" classid="clsid:6BF52A52-394A-11d3-B153-00C04F79FAA6" width=0 height=0 > <param name="URL" value=' + value + ' /> <param name="AutoStart" value="false" /> </OBJECT>UK<img class="soundUK" src="/images/soundGray.gif" onclick="Player.controls.play();" />US<img class="soundUS" src="/images/soundGreen.gif" onclick="Player.controls.play();" />'
+
     $(".DivSound")[0].innerHTML = (str);
-    //alert()
     //鼠标放置发音图标显示变化---------------------------------------------------begin
     $(".soundUK").mouseover(function () {
         $(".soundUK").css("cursor", "pointer");

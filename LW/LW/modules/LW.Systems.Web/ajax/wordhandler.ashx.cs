@@ -57,14 +57,29 @@ namespace LW.Systems.Web.Ajax
             }
         }
         /// <summary>
-        /// (抬走)下一个
+        /// 抬走或者进入小节(明细里的向右按钮)
         /// </summary>
-        public void nextword()
+        public void revolve()
         {
             try
             {
                 string userid = HttpContext.Current.Request["userid"].ToString();
-                HttpContext.Current.Response.Write(new LW.Systems.DAL.Factory.Word().NextWord(userid));
+                HttpContext.Current.Response.Write(new LW.Systems.DAL.Factory.Word().revolve(userid));
+            }
+            catch
+            {
+            }
+        }
+        /// <summary>
+        /// 运算将下一批单词进入小节列队(小节里的向右按钮)
+        /// </summary>
+        public void nextsmallgroup()
+        {
+            try
+            {
+                string userid = HttpContext.Current.Request["userid"].ToString();
+                new LW.Systems.DAL.Factory.Word().nextSmallGroup(userid);
+                HttpContext.Current.Response.Write("操作完成!");
             }
             catch
             {

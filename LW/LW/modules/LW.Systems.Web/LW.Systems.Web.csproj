@@ -91,18 +91,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="view\chartdemo.html" />
-    <Content Include="view\index.html" />
     <Content Include="view\memory_back.html" />
     <Content Include="view\sound.js" />
-    <Content Include="view\sound_back.html" />
     <Content Include="view\sound_back.js" />
-    <Content Include="view\worddetail.html" />
     <Content Include="view\memory_back.aspx" />
-    <Content Include="view\各字母单词分布率.html" />
     <Content Include="view\memory.aspx" />
-    <Content Include="view\并排居中.html" />
-    <Content Include="view\渐变色.html" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ajax\loginhandler.ashx" />

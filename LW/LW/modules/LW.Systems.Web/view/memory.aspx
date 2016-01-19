@@ -85,15 +85,32 @@
                 <div class="Sentence" style="padding: 15px 15px 15px 15px"></div>
             </div>
             <div style="float: left; width: 15%; height: 231px;">
-                <img class="rightarrow" src="/images/rightarrow.gif" />
+                <img alt="rightarrow" class="rightarrow" src="/images/rightarrow.gif" />
             </div>
             <div style="float: left; width: 11%; height: 227px; font-weight: bold; font-size: 13px; padding-top: 5px">笔记</div>
             <div style="float: left; width: 74%; height: 231px;"></div>
             <div style="float: left; width: 15%; height: 231px;"></div>
         </div>
 
-    </form>
+        <div id="divgroup">
+            <div style="float: left; width: 14%; height: 58px;">总结</div>
+            <div style="float: left; width: 86%; height: 58px; text-align: left; font-size: 20px; font-weight: bold">快速回顾</div>
 
+            <div id="idgridgroup" style="float: left; width: 90%; height: 368px;">
+            </div>
+
+            <div style="float: left; width: 10%; height: 368px; padding-top: 200px">
+                <img alt="rightarrow" class="rightarrow" src="/images/rightarrow.gif" />
+            </div>
+
+        </div>
+
+        <div id="divcongratulations">
+            恭喜您!
+            今日单词任务已完成
+        </div>
+
+    </form>
 
     <script type="text/javascript">
         var userid = "22";
@@ -111,6 +128,11 @@
                 type: "post",
                 success: function (text) {
                     var d = mini.decode(text);
+                    if (d.data[0].TopOne == "0") {
+                        showdivcongratulations();
+                        return;
+                    }
+
                     $(".word").html(d.data[0].WordE);
                     $(".Pronunciation").html(d.data[0].Pronunciation);
                     $(".wordC").html(d.data[0].wordC);
@@ -141,14 +163,31 @@
                 }
             });
         }
+
         function showdivmemory() {
             $("#ifknown").show();
             $("#divmemory").show();
             $("#divworddetail").hide();
+            $("#divgroup").hide();
+            $("#divcongratulations").hide();
         }
         function showdivworddetail() {
             $("#divmemory").hide();
             $("#divworddetail").show();
+            $("#divgroup").hide();
+            $("#divcongratulations").hide();
+        }
+        function showdivgroup() {
+            $("#divmemory").hide();
+            $("#divworddetail").hide();
+            $("#divgroup").show();
+            $("#divcongratulations").hide();
+        }
+        function showdivcongratulations() {
+            $("#divmemory").hide();
+            $("#divworddetail").hide();
+            $("#divgroup").hide();
+            $("#divcongratulations").show();
         }
 
         function lookdetail() {
@@ -162,12 +201,37 @@
             });
         }
 
-        function nextword() {
+        function revolve() {
             $.ajax({
-                data: { userid: userid, fn: "nextword" },
+                data: { userid: userid, fn: "revolve" },
                 url: "/modules/LW.Systems.Web/Ajax/wordhandler.ashx",
                 type: "post",
                 success: function (text) {
+                    var d = mini.decode(text);
+                    if (d.data[0].info == "memory")
+                        getword();
+                    else {
+                        showdivgroup();
+                        $("#idgridgroup").empty();
+                        for (var i = 0; i < 7; i++) {
+                            word = d.data[i].WordE;
+                            $("#idgridgroup").append('<div style="float: left; width: 20%;height:60px"></div><div style="float: left; width: 80%;height:60px"><div style="float: left; width: 150px; font-weight: bold;text-align: left;">' + word + '</div><div style="float: left; font-size: 10px">' + d.data[i].wordC + '</div></div>')
+                        }
+                    }
+                }
+            });
+        }
+
+        function nextsmallgroup() {
+            $.ajax({
+                data: { userid: userid, fn: "nextsmallgroup" },
+                url: "/modules/LW.Systems.Web/Ajax/wordhandler.ashx",
+                type: "post",
+                success: function (text) {
+                    //var d = mini.decode(text);
+                    //if (d.data[0].info == "congratulations")
+                    //    showdivcongratulations();
+                    //else if (d.data[0].info == "nextgroup")
                     getword();
                 }
             });
@@ -232,7 +296,7 @@
             lookdetail();
         })
         $("#ifknown").find(".yes").click(function () {
-            if(status==12)
+            if (status == 12)
                 updatewordstatus(11);
             else
                 updatewordstatus(10);
@@ -269,13 +333,18 @@
         $(".rightarrow").mouseout(function () {
             $(".rightarrow").attr("src", "/images/rightarrow.gif");
         });
-        $(".rightarrow").click(function () {
-            nextword();
+        $("#divworddetail").find(".rightarrow").click(function () {
+            revolve();
         })
+
+        $("#divgroup").find(".rightarrow").click(function () {
+            nextsmallgroup();
+        })
+
         //鼠标放置显示变化---------------------------------------------------end
 
     </script>
-    <script src="/modules/LW.Systems.Web/view/sound.js?1" type="text/javascript"></script>
+    <script src="/modules/LW.Systems.Web/view/sound.js?6" type="text/javascript"></script>
 
 
 </asp:Content>
