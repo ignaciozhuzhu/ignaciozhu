@@ -46,7 +46,7 @@
                 return;
             }
             $.ajax({
-                url: "/modules/LW.Systems.Web/Ajax/loginhandler.ashx",
+                url: "/modules/LW.Systems.Web/Ajax/userhandler.ashx",
                 data: { fn: "regedit", username: $("#username").val(), sha1: $("#sha1").val() },
                 type: "post",
                 success: function (text) {
@@ -62,17 +62,26 @@
                 return;
             }
             IsString($("#sha1").val());
+            var username = $("#username").val();
             $.ajax({
                 type: "POST",
-                url: "/modules/LW.Systems.Web/Ajax/loginhandler.ashx?fn=log_in",
+                url: "/modules/LW.Systems.Web/Ajax/userhandler.ashx?fn=log_in",
                 data: { username: $("#username").val(), sha1: $("#sha1").val() },//hex_sha1($("#sha1").val() + $("#username").val() + '089').toLowerCase()
                 success: function (msg) {
                     if (msg.indexOf('System.Exception') == -1) {
                         var ret = mini.decode(msg);
-                        alert(ret.data[0].info)
+                        alert(ret.data[0].info);
+                        if (ret.data[0].info == "登录成功!") {
+                            if (username == 'liuqi') {
+                                window.location.href = "modules/LW.Systems.Web/view/Charting.aspx";
+                            }
+                            else {
+                                window.location.href = "modules/LW.Systems.Web/view/index.aspx";
+                            }
+                        }
                     }
                     else {
-                        alert(msg)
+                        alert(msg);
                     }
                 }
             });
@@ -99,19 +108,6 @@
     }
 
 
-    //function regedit() {
-    //    $.ajax({
-    //        url: "/modules/LW.Systems.Web/Ajax/Login.ashx",
-    //        data: { fn: "regedit", username: $("#username").val() },
-    //        type: "post",
-    //        success: function (text) {
-    //            //alert()
-    //            var d = mini.decode(text);
-    //            alert(d.data[0].info)
-    //            //  alert()
-    //        }
-    //    })
-    //}
 
 
 </script>

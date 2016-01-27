@@ -10,17 +10,17 @@
                 <div style="float: left; width: 130px; 楷体; color: #9999a5" class="Pronunciation"></div>
                 <div class="DivSound" style="margin-left: 130px;"></div>
             </div>
-            <div id="Sentence" style="width: 80%; margin: 0px auto; height: 70px;">
+            <div id="Sentence" style="width: 75%; margin: 0px auto; height: 70px;">
                 <div style="background-color: #eee; height: 55px; border: 1px solid #e3e3e3; border-radius: 3px;">
                     <div class="Sentence" style="font-size: 16px; text-align: left; padding: 15px 15px 15px 15px"></div>
                 </div>
             </div>
-            <div id="wordC" style="width: 80%; margin: 0px auto; height: 70px;">
+            <div id="wordC" style="width: 75%; margin: 0px auto; height: 70px;">
                 <div style="background-color: #eee; height: 55px; border: 1px solid #e3e3e3; border-radius: 3px;">
                     <div class="wordC" style="font-size: 16px; text-align: left; padding: 15px 15px 15px 15px"></div>
                 </div>
             </div>
-            <table id="ifknown" style="width: 80%; margin: 0px auto;">
+            <table id="ifknown" style="width: 75%; margin: 0px auto;">
                 <tr class="yes">
                     <td class="tomid slant" style="vertical-align: middle; border: 1px solid #ddd">1.</td>
                     <td style="vertical-align: middle; text-align: left; padding-left: 20px; border: 1px solid #ddd">认识</td>
@@ -30,7 +30,7 @@
                     <td style="vertical-align: middle; text-align: left; padding-left: 20px; border: 1px solid #ddd">不认识</td>
                 </tr>
             </table>
-            <table id="ifremind" style="width: 80%; margin: 0px auto;">
+            <table id="ifremind" style="width: 75%; margin: 0px auto;">
                 <tr class="yes">
                     <td class="tomid slant" style="vertical-align: middle; border: 1px solid #ddd">1.</td>
                     <td style="vertical-align: middle; text-align: left; padding-left: 20px; border: 1px solid #ddd">想起来了</td>
@@ -40,20 +40,20 @@
                     <td style="vertical-align: middle; text-align: left; padding-left: 20px; border: 1px solid #ddd">没想起来</td>
                 </tr>
             </table>
-            <table id="lookdetail" style="width: 80%; margin: 0px auto;">
+            <table id="lookdetail" style="width: 75%; margin: 0px auto;">
                 <tr class="yes">
                     <td class="tomid slant" style="vertical-align: middle; border: 1px solid #ddd">1.</td>
                     <td style="vertical-align: middle; text-align: left; padding-left: 20px; border: 1px solid #ddd">查看明细</td>
                 </tr>
             </table>
 
-            <div style="height: 450px;"></div>
+            <div style="height: 410px;"></div>
 
-            <div style="font-size: 12px;">
-                <div style="float: left; font-weight: bold; width: 10%">
-                    <font style="padding-left: 30px">进度</font>
-                </div>
-                <div style="float: left; width: 80%; margin: 0px auto; border: 1px solid #ddd">
+            <div style="float: left; font-weight: bold; font-size: 12px">
+                <font style="padding-left: 60px">进度</font>
+            </div>
+            <div style="font-size: 12px; width: 75%; margin: 0px auto;">
+                <div style="float: left; width: 100%; margin: 0px auto; border: 1px solid #ddd">
                     <div id="nkown" style="text-align: center; color: #fff; background-color: #209e85; float: left;"></div>
                     <div id="learn" style="text-align: center; color: #fff; background-color: #50c1ab; float: left;"></div>
                     <div id="toLearn" style="text-align: center; background-color: #f5f5f5; float: left;"></div>
@@ -79,7 +79,8 @@
                     </div>
                 </div>
             </div>
-            <div style="float: left; width: 15%; height: 168px">图</div>
+            <div style="float: left; width: 15%; height: 168px; visibility: hidden">图</div>
+
             <div style="float: left; width: 11%; height: 226px; font-weight: bold; font-size: 13px; padding-top: 5px">例句</div>
             <div style="float: left; width: 74%; height: 231px; text-align: left; font-size: 16px;">
                 <div class="Sentence" style="padding: 15px 15px 15px 15px"></div>
@@ -93,13 +94,14 @@
         </div>
 
         <div id="divgroup">
-            <div style="float: left; width: 14%; height: 58px;">总结</div>
+            <div style="float: left; width: 14%; height: 58px; font-weight: bold">总结</div>
             <div style="float: left; width: 86%; height: 58px; text-align: left; font-size: 20px; font-weight: bold">快速回顾</div>
 
-            <div id="idgridgroup" style="float: left; width: 90%; height: 368px;">
+            <div id="idgridgroup" style="float: left; width: 90%; height: 368px">
+                
             </div>
 
-            <div style="float: left; width: 10%; height: 368px; padding-top: 200px">
+            <div style="float: left; width: 10%; height: 368px; padding-top: 170px">
                 <img alt="rightarrow" class="rightarrow" src="/images/rightarrow.gif" />
             </div>
 
@@ -110,55 +112,117 @@
             今日单词任务已完成
         </div>
 
+
     </form>
 
+    <div id="diverror" style="display: none">
+        未知异常!
+    </div>
+
     <script type="text/javascript">
-        var userid = "22";
         var word;
         var orderby;
         var status;
         $(document).ready(function () {
-            getword(userid);
+             getuserorderby();
         });
-        //获取页面单词
-        function getword() {
+
+        //进入这个页面首先判断用户的学习状态
+        function getuserorderby() {
             $.ajax({
-                data: { userid: userid, fn: "getword" },
+                data: { fn: "getuserstatusnow" },
                 url: "/modules/LW.Systems.Web/Ajax/wordhandler.ashx",
                 type: "post",
                 success: function (text) {
-                    var d = mini.decode(text);
-                    if (d.data[0].TopOne == "0") {
+                    if (text == "0") {
                         showdivcongratulations();
                         return;
                     }
-
-                    $(".word").html(d.data[0].WordE);
-                    $(".Pronunciation").html(d.data[0].Pronunciation);
-                    $(".wordC").html(d.data[0].wordC);
-                    orderby = d.data[0].OrderBy;
-                    status = d.data[0].Status;
-                    word = d.data[0].WordE;
-
-                    var Sentence = d.data[0].Sentence;
-                    Sentence = Sentence.replace(word, '<span style= "font-weight: bold;font-size:20px">' + word + '</span>');
-                    $(".Sentence").html(Sentence);
-
-                    var value = "http://dict.youdao.com/dictvoice?type=2&audio=" + word + "";
-                    if (navigator.userAgent.indexOf('Chrome') < 0) {
-                        //非谷歌专用播放器
-                        document.getElementById('Player').URL = value;
+                    else if (text == "8") {
+                        nextsmallgroup();
                     }
+                    else {
+                        getword();
+                    }
+                }
+            })
+        }
 
-                    showdivmemory();
-                    getschedule();
+        //获取页面单词
+        function getword() {
+            $.ajax({
+                data: { fn: "getword" },
+                url: "/modules/LW.Systems.Web/Ajax/wordhandler.ashx",
+                type: "post",
+                success: function (text) {
+                    if (rightclick == "1")
+                        $.ajax({
+                            data: { fn: "revolve" },
+                            url: "/modules/LW.Systems.Web/Ajax/wordhandler.ashx",
+                            type: "post",
+                            success: function (text) {
+                                rightclick = 0;
+                                var d = mini.decode(text);
+                                if (d.data[0].info == "memory")
+                                    getword();
+                                else {
+                                    showdivgroup();
+                                    $("#idgridgroup").empty();
+                                    for (var i = 0; i < 7; i++) {
+                                        word = d.data[i].WordE;
+                                        var Level = d.data[i].Level;
+                                        var colorlevel;
+                                        var style;
+                                        var styleno;
+                                        var levelwidth;
+                                        var levelnowidth;
+                                        levelwidth = Level * 19.5;
+                                        levelnowidth = (5 - Level) * 19.5;
+                                        if (Level == 0) {
+                                            colorlevel = "#f2dede";
+                                            styleno = "border-radius: 3px;";
+                                        }
+                                        else {
+                                            colorlevel = "#dff0d8";
+                                            if (Level == 5) {
+                                                style = "border-radius: 3px;";
+                                            }
+                                            else {
+                                                style = "border-top-left-radius: 3px;border-bottom-left-radius: 3px;";
+                                                styleno = "border-top-right-radius: 3px;border-bottom-right-radius: 3px;";
+                                            }
+                                        }
+                                        //$("#idgridgroup").append('<div style="float: left; width: 20%;height:60px"></div><div style="float: left; width: 75%;height:60px"><div style="float: left; width: 150px; font-weight: bold;text-align: left;">' + word + '</div><div style="float: left; font-size: 10px">' + d.data[i].wordC + '</div></div>')
+                                        $("#idgridgroup").append('<div style="float: left; width: 15%;height:60px"></div><div style="float: left; width: 80%;height:60px;padding:15px 0 0 10px;border: 1px solid #ddd;background-color:' + colorlevel + '"><div style="float: left; width: 150px; font-weight: bold;text-align: left;">' + word + '</div><div style="float: left;width:260px; font-size: 10px;text-align: left;">' + d.data[i].wordC + '</div><div style="float: left;"><div style="float: left; width: 100px; margin: 0px auto; border: 1px solid #ddd;border-radius: 3px;"><div style="background-color: #209e85; float: left;height:20px;width:' + levelwidth + 'px;' + style + '"></div><div style="background-color: #fff; float: left;height:20px;width:' + levelnowidth + 'px;' + styleno + '"></div></div></div></div>')
+                                    }
+                                }
+                            }
+                        });
 
-                    $("#Sentence").hide();
-                    $("#wordC").hide();
-                    $("#ifremind").hide();
-                    $("#lookdetail").hide();
-                    if (status == 12) {
-                        $("#Sentence").show();
+                    else {
+                        var d = mini.decode(text);
+                        if (d.data[0] == undefined) {
+                            $("#mainForm").hide();
+                            $("#diverror").show();
+                            return;
+                        }
+                        $(".word").html(d.data[0].WordE);
+                        $(".Pronunciation").html(d.data[0].Pronunciation);
+                        $(".wordC").html(d.data[0].wordC);
+                        orderby = d.data[0].OrderBy;
+                        status = d.data[0].Status;
+                        word = d.data[0].WordE;
+
+                        var Sentence = d.data[0].Sentence;
+                        Sentence = Sentence.replace(word, '<span style= "font-weight: bold;font-size:20px">' + word + '</span>');
+                        $(".Sentence").html(Sentence);
+
+                        var value = "http://dict.youdao.com/dictvoice?type=2&audio=" + word + "";
+                        if (navigator.userAgent.indexOf('Chrome') < 0) {
+                            //非谷歌专用播放器
+                            document.getElementById('Player').URL = value;
+                        }
+                        showdivmemory();
                     }
                 }
             });
@@ -170,6 +234,15 @@
             $("#divworddetail").hide();
             $("#divgroup").hide();
             $("#divcongratulations").hide();
+            getschedule();
+
+            $("#Sentence").hide();
+            $("#wordC").hide();
+            $("#ifremind").hide();
+            $("#lookdetail").hide();
+            if (status == 12) {
+                $("#Sentence").show();
+            }
         }
         function showdivworddetail() {
             $("#divmemory").hide();
@@ -191,19 +264,20 @@
         }
 
         function lookdetail() {
-            $.ajax({
-                data: { userid: userid, fn: "lookdetail" },
-                url: "/modules/LW.Systems.Web/Ajax/wordhandler.ashx",
-                type: "post",
-                success: function (text) {
-                    showdivworddetail();
-                }
-            });
+            //$.ajax({
+            //    data: { fn: "lookdetail" },
+            //    url: "/modules/LW.Systems.Web/Ajax/wordhandler.ashx",
+            //    type: "post",
+            //    success: function (text) {
+
+            //    }
+            //});
+            showdivworddetail();
         }
 
         function revolve() {
             $.ajax({
-                data: { userid: userid, fn: "revolve" },
+                data: { fn: "revolve" },
                 url: "/modules/LW.Systems.Web/Ajax/wordhandler.ashx",
                 type: "post",
                 success: function (text) {
@@ -215,7 +289,7 @@
                         $("#idgridgroup").empty();
                         for (var i = 0; i < 7; i++) {
                             word = d.data[i].WordE;
-                            $("#idgridgroup").append('<div style="float: left; width: 20%;height:60px"></div><div style="float: left; width: 80%;height:60px"><div style="float: left; width: 150px; font-weight: bold;text-align: left;">' + word + '</div><div style="float: left; font-size: 10px">' + d.data[i].wordC + '</div></div>')
+                            $("#idgridgroup").append('<div style="float: left; width: 20%;height:60px"></div><div style="float: left; width: 75%;height:60px;"><div style="float: left; width: 150px; font-weight: bold;text-align: left;">' + word + '</div><div style="float: left; font-size: 10px">' + d.data[i].wordC + '</div></div>')
                         }
                     }
                 }
@@ -224,35 +298,32 @@
 
         function nextsmallgroup() {
             $.ajax({
-                data: { userid: userid, fn: "nextsmallgroup" },
+                data: { fn: "nextsmallgroup" },
                 url: "/modules/LW.Systems.Web/Ajax/wordhandler.ashx",
                 type: "post",
                 success: function (text) {
-                    //var d = mini.decode(text);
-                    //if (d.data[0].info == "congratulations")
-                    //    showdivcongratulations();
-                    //else if (d.data[0].info == "nextgroup")
-                    getword();
+                    getuserorderby();
                 }
             });
         }
 
+        var IfWordReady = "0";//防超车:这是为了防止右箭头按钮按的太快了,未等后台更新OrderBy就点了.
         function updatewordstatus(status) {
             $.ajax({
-                data: { userid: userid, orderby: orderby, status: status, fn: "updatewordstatus" },
+                data: { orderby: orderby, status: status, fn: "updatewordstatus" },
                 url: "/modules/LW.Systems.Web/Ajax/wordhandler.ashx",
                 type: "post",
                 success: function (text) {
+                    IfWordReady = "1";
                     getschedule();
                 }
             });
         }
 
-
         //获取进度条
         function getschedule() {
             $.ajax({
-                data: { userid: userid, fn: "getschedule" },
+                data: { fn: "getschedule" },
                 url: "/modules/LW.Systems.Web/Ajax/wordhandler.ashx",
                 type: "post",
                 success: function (text) {
@@ -296,10 +367,12 @@
             lookdetail();
         })
         $("#ifknown").find(".yes").click(function () {
-            if (status == 12)
+            if (status == 12) {
                 updatewordstatus(11);
-            else
+            }
+            else {
                 updatewordstatus(10);
+            }
         })
 
         $(".no").mouseover(function () {
@@ -316,9 +389,16 @@
         });
         $("#ifknown").find(".no").click(function () {
             updatewordstatus(12);
-            $("#Sentence").show();
-            $("#ifknown").hide();
-            $("#ifremind").show();
+            if (status != 1) {
+                $("#wordC").show();
+                $("#ifknown").hide();
+                $("#lookdetail").show();
+            }
+            else {
+                $("#Sentence").show();
+                $("#ifknown").hide();
+                $("#ifremind").show();
+            }
         })
         $("#ifremind").find(".no").click(function () {
             $("#wordC").show();
@@ -333,12 +413,21 @@
         $(".rightarrow").mouseout(function () {
             $(".rightarrow").attr("src", "/images/rightarrow.gif");
         });
+        var rightclick = 0;//这是为了防止按的太快了.
         $("#divworddetail").find(".rightarrow").click(function () {
-            revolve();
+            if (IfWordReady == "1") {
+                IfWordReady == "0"
+                rightclick = '1';
+                getword();
+            }
         })
 
         $("#divgroup").find(".rightarrow").click(function () {
-            nextsmallgroup();
+            if (IfWordReady == "1") {
+                IfWordReady == "0"
+                rightclick = '1';
+                nextsmallgroup();
+            }
         })
 
         //鼠标放置显示变化---------------------------------------------------end

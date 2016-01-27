@@ -26,7 +26,7 @@
         }
 
         /*中间固定宽度,两边自适应**************************/
-        #mainbody {
+        .mainbody {
             MARGIN-RIGHT: auto;
             MARGIN-LEFT: auto;
             height: 800px;
@@ -35,7 +35,7 @@
             float: left;
         }
 
-        #left, #right {
+        .left, .right {
             float: left;
             margin: 0 0 0 -441px;
             width: 50%;
@@ -45,8 +45,8 @@
             padding: 20px;
         }
 
-        #left .inner,
-        #right .inner {
+        .left .inner,
+        .right .inner {
             margin: 0 0 0 441px;
         }
         /*中间固定宽度,两边自适应**************************/
@@ -66,41 +66,72 @@
 </head>
 <body>
     <div>
-        <div id="header" style="padding: 20px 0 13px 0;">
-            首页
-                比武<img id="aa" src="/images/downArrow.gif" />
-            引燃<img id="Img2" src="/images/downArrow.gif" />
-            大头<img id="Img3" src="/images/downArrow.gif" />
-            传送<img id="Img4" src="/images/downArrow.gif" />
-            社区<img id="Img5" src="/images/downArrow.gif" />
-            我们<img id="Img1" src="/images/downArrow.gif" />
-            大家<img id="Img6" src="/images/downArrow.gif" />
-            一起<img id="Img7" src="/images/downArrow.gif" />
-            哈啤<img id="Img8" src="/images/downArrow.gif" />
+        <div id="header" style="padding: 20px 0 13px 0; margin: 0px auto">
+            <table style="margin: 0px auto; width: 800px">
+                <tr>
+                    <td id="index" style="float: left;">首页</td>
+                    <td style="width: 200px"></td>
+                    <td id="selectLexicon">选择词汇</td>
+                    <td id="logout" style="float: right; padding-left: 10px">注销<span id="username"></span></td>
+                </tr>
+            </table>
         </div>
         <div style="border: 1px solid #d1d0d0">
         </div>
         <div id="boundary">
         </div>
 
-        <div id="left">
+        <div class="left">
             <div class="inner"></div>
         </div>
-        <div id="mainbody">
+        <div class="mainbody">
             <asp:ContentPlaceHolder ID="ContentPlaceHolderBody" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <div id="right">
+        <div class="right">
             <div class="inner"></div>
         </div>
 
-        <div style="height:100px">
-
-
+        <div style="height: 100px">
         </div>
     </div>
 
-
-
 </body>
 </html>
+<script type="text/javascript">
+
+    loadname();
+    function loadname() {
+        $.ajax({
+            url: "/modules/LW.Systems.Web/Ajax/userhandler.ashx",
+            data: { fn: "loadname" },
+            type: "post",
+            success: function (text) {
+                $("#username").append(text);
+            }
+        })
+    }
+
+    $("#index").click(function () {
+        window.location.href = "index.aspx";
+    })
+    $("#index").css("cursor", "pointer");
+
+    $("#selectLexicon").click(function () {
+        window.location.href = "selectLexicon.aspx";
+    })
+    $("#selectLexicon").css("cursor", "pointer");
+
+    $("#logout").click(function () {
+        $.ajax({
+            url: "/modules/LW.Systems.Web/Ajax/userhandler.ashx",
+            data: { fn: "logout" },
+            type: "post",
+            success: function (text) {
+                window.location.href = "/index.html";
+            }
+        })
+    })
+    $("#logout").css("cursor", "pointer");
+
+</script>

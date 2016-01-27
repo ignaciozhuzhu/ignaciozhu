@@ -35,13 +35,14 @@ namespace LW.Systems.Web.Ajax
         {
             try
             {
-                string userid = HttpContext.Current.Request["userid"].ToString();
+                string userid = HttpContext.Current.Session["userid"].ToString();
                 HttpContext.Current.Response.Write(new LW.Systems.DAL.Factory.Word().GetWord(userid));
             }
             catch
             {
             }
         }
+
         /// <summary>
         /// 进度条
         /// </summary>
@@ -49,7 +50,7 @@ namespace LW.Systems.Web.Ajax
         {
             try
             {
-                string userid = HttpContext.Current.Request["userid"].ToString();
+                string userid = HttpContext.Current.Session["userid"].ToString();
                 HttpContext.Current.Response.Write(new LW.Systems.DAL.Factory.Word().GetSchedule(userid));
             }
             catch
@@ -63,7 +64,7 @@ namespace LW.Systems.Web.Ajax
         {
             try
             {
-                string userid = HttpContext.Current.Request["userid"].ToString();
+                string userid = HttpContext.Current.Session["userid"].ToString();
                 HttpContext.Current.Response.Write(new LW.Systems.DAL.Factory.Word().revolve(userid));
             }
             catch
@@ -77,7 +78,7 @@ namespace LW.Systems.Web.Ajax
         {
             try
             {
-                string userid = HttpContext.Current.Request["userid"].ToString();
+                string userid = HttpContext.Current.Session["userid"].ToString();
                 new LW.Systems.DAL.Factory.Word().nextSmallGroup(userid);
                 HttpContext.Current.Response.Write("操作完成!");
             }
@@ -92,15 +93,65 @@ namespace LW.Systems.Web.Ajax
         {
             try
             {
-                string userid = HttpContext.Current.Request["userid"].ToString();
-                string orderby = HttpContext.Current.Request["orderby"].ToString();
-                string status = HttpContext.Current.Request["status"].ToString();
-                HttpContext.Current.Response.Write(new LW.Systems.DAL.Factory.Word().UpdateWordStatus(userid, orderby, status));
+                int userid =  Convert.ToInt32(HttpContext.Current.Session["userid"].ToString());
+                int orderby =  Convert.ToInt32(HttpContext.Current.Request["orderby"].ToString());
+                int status = Convert.ToInt32(HttpContext.Current.Request["status"].ToString());
+                new LW.Systems.DAL.Factory.Word().UpdateWordStatus(userid, orderby, status);
+                HttpContext.Current.Response.Write("操作完成!");
             }
             catch
             {
             }
         }
+
+        /// <summary>
+        /// 获取当前用户学到第几个了
+        /// </summary>
+        public void getuserorderby()
+        {
+            try
+            {
+                string userid = HttpContext.Current.Session["userid"].ToString();
+                HttpContext.Current.Response.Write(new LW.Systems.DAL.Factory.Word().GetUserOrderBy(userid));
+            }
+            catch
+            {
+            }
+        }
+        /// <summary>
+        /// 开始学习
+        /// </summary>
+        public void start2learn()
+        {
+            try
+            {
+                string userid = HttpContext.Current.Session["userid"].ToString();
+                if (userid == "") {
+                    HttpContext.Current.Response.Write("请先登录!");
+                }
+                new LW.Systems.DAL.Factory.Word().Start2Learn(userid);
+                HttpContext.Current.Response.Write("操作完成!");
+            }
+            catch
+            {
+            }
+        }
+
+        /// <summary>
+        /// 判断是中途而废的逗比还是已经完成
+        /// </summary>
+        public void getuserstatusnow()
+        {
+            try
+            {
+                string userid = HttpContext.Current.Session["userid"].ToString();
+                HttpContext.Current.Response.Write(new LW.Systems.DAL.Factory.Word().GetUserStatusNow(userid));
+            }
+            catch
+            {
+            }
+        }
+
 
 
         public bool IsReusable
